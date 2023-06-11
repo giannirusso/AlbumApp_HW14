@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "1")
         return tableView
     }()
+    
+    lazy var cellContainer
 // данные для ячеек (ЯЧЕЕК ЕЩË НЕТ!)
     var cellConfig: [[String]] = [
         ["0","1","2","3"],
@@ -27,6 +29,8 @@ class ViewController: UIViewController {
     ]
     
 
+//    collectionView
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
