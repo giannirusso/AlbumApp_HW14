@@ -12,15 +12,15 @@ class MyAlbumsCell: UITableViewCell {
     lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = .init(width: 150, height: 120)
-        layout.sectionInset = .init(top: 16, left: 16, bottom: 16, right: 16)
+        layout.itemSize = .init(width: 150, height: 150)
+        layout.sectionInset = .init(top: 0, left: 16, bottom: 30, right: 16)
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "2")
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(MyAlbumsCollectionCell.self, forCellWithReuseIdentifier: "2")
         return collectionView
     }()
     
@@ -28,24 +28,27 @@ class MyAlbumsCell: UITableViewCell {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.textAlignment = .left
-        title.backgroundColor = .yellow
         title.text = "My Albums"
         title.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         return title
     }()
+
     
-    lazy var image: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        image.clipsToBounds = true
+    var collectionViewConfig: [[CollectionViewModel]] = [
+        [
+            CollectionViewModel(imageName: "1", title: "First", numberOfPhotos: 100),
+            CollectionViewModel(imageName: "2", title: "Second", numberOfPhotos: 200),
+            CollectionViewModel(imageName: "3", title: "Third", numberOfPhotos: 300),
+            CollectionViewModel(imageName: "4", title: "Fourth", numberOfPhotos: 400),
+            CollectionViewModel(imageName: "5", title: "Fifth", numberOfPhotos: 500),
+            CollectionViewModel(imageName: "6", title: "Six", numberOfPhotos: 600),
+            CollectionViewModel(imageName: "7", title: "Seven", numberOfPhotos: 700),
+            CollectionViewModel(imageName: "8", title: "Eight", numberOfPhotos: 800),
+            CollectionViewModel(imageName: "9", title: "Nine", numberOfPhotos: 900),
+            CollectionViewModel(imageName: "10", title: "Ten", numberOfPhotos: 1000),
+            
+        ]
         
-        return image
-    }()
-    
-    var collectionViewConfig: [[String]] = [
-        ["0","1","2","3"],
-        ["4","5","6","7"],
     ]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -53,26 +56,18 @@ class MyAlbumsCell: UITableViewCell {
         
         contentView.addSubview(collectionView)
         contentView.addSubview(title)
-        contentView.addSubview(image)
         
         NSLayoutConstraint.activate([
             
             title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             title.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
-            title.heightAnchor.constraint(equalToConstant: 25),
+            title.heightAnchor.constraint(equalToConstant: 30),
             
             collectionView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 15),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            image.topAnchor.constraint(equalTo: collectionView.topAnchor),
-            image.leftAnchor.constraint(equalTo: collectionView.leftAnchor),
-            image.rightAnchor.constraint(equalTo: collectionView.rightAnchor),
-            image.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            
-            
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             
         ])
     }
@@ -89,9 +84,15 @@ extension MyAlbumsCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "2", for: indexPath)
-        cell.backgroundColor = .cyan
-        return cell
+        let cellModel = collectionViewConfig[indexPath.section][indexPath.item]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "2", for: indexPath) as? MyAlbumsCollectionCell
+        cell?.backgroundColor = .systemBackground
+        cell?.label.text = cellModel.title
+        cell?.quantityLabel.text = String(cellModel.numberOfPhotos)
+        cell?.imageView.image = UIImage(named: cellModel.imageName)
+        
+        return cell!
         
     }
     

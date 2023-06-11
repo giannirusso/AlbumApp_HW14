@@ -19,54 +19,46 @@ class PeopleAndPlacesCell: UITableViewCell {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "2")
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(PeopleAndPlacesCollectionCell.self, forCellWithReuseIdentifier: "2")
         return collectionView
     }()
     
     lazy var title: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.textAlignment = .center
-        title.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        title.textAlignment = .left
+        title.text = "People & Places"
+        title.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         return title
     }()
     
-    lazy var image: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        image.clipsToBounds = true
+    var collectionViewConfig: [[CollectionViewModel]] = [
         
-        return image
-    }()
-    
-    var collectionViewConfig: [[String]] = [
-        ["0","1","2","3"],
-        ["4","5","6","7"],
+        [
+            CollectionViewModel(imageName: "Ava1", title: "People", numberOfPhotos: 1),
+        ],
     ]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(contentView)
+        
         contentView.addSubview(collectionView)
         contentView.addSubview(title)
-        contentView.addSubview(image)
+
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            
+            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            title.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            title.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
+            title.heightAnchor.constraint(equalToConstant: 30),
+            
+            collectionView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 15),
             collectionView.leftAnchor.constraint(equalTo: leftAnchor),
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            image.topAnchor.constraint(equalTo: collectionView.topAnchor),
-            image.leftAnchor.constraint(equalTo: collectionView.leftAnchor),
-            image.rightAnchor.constraint(equalTo: collectionView.rightAnchor),
-            image.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            
-            title.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10),
-            
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
         ])
     }
     
@@ -82,9 +74,15 @@ extension PeopleAndPlacesCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "2", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
+        let cellModel = collectionViewConfig[indexPath.section][indexPath.item]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "2", for: indexPath) as? PeopleAndPlacesCollectionCell
+        cell?.backgroundColor = .systemBackground
+        cell?.label.text = cellModel.title
+        cell?.quantityLabel.text = String(cellModel.numberOfPhotos)
+        cell?.imageViewOne.image = UIImage(named: cellModel.imageName)
+        
+        return cell!
         
     }
     

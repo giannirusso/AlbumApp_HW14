@@ -13,6 +13,12 @@
 		525D47B02A34AFE700DD7C89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525D47AE2A34AFE700DD7C89 /* Main.storyboard */; };
 		525D47B22A34AFE900DD7C89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525D47B12A34AFE900DD7C89 /* Assets.xcassets */; };
 		525D47B52A34AFE900DD7C89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525D47B32A34AFE900DD7C89 /* LaunchScreen.storyboard */; };
+		525D47C02A34BFD300DD7C89 /* MyAlbumsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47BF2A34BFD300DD7C89 /* MyAlbumsCell.swift */; };
+		525D47C22A36043700DD7C89 /* PeopleAndPlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47C12A36043700DD7C89 /* PeopleAndPlacesCell.swift */; };
+		525D47C42A36116600DD7C89 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47C32A36116600DD7C89 /* CollectionViewModel.swift */; };
+		525D47C82A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47C72A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift */; };
+		525D47CA2A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47C92A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift */; };
+		525D47CC2A36274400DD7C89 /* MapCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47CB2A36274400DD7C89 /* MapCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		525D47B12A34AFE900DD7C89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		525D47B42A34AFE900DD7C89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		525D47B62A34AFE900DD7C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		525D47BF2A34BFD300DD7C89 /* MyAlbumsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCell.swift; sourceTree = "<group>"; };
+		525D47C12A36043700DD7C89 /* PeopleAndPlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAndPlacesCell.swift; sourceTree = "<group>"; };
+		525D47C32A36116600DD7C89 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		525D47C72A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCollectionCell.swift; sourceTree = "<group>"; };
+		525D47C92A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAndPlacesCollectionCell.swift; sourceTree = "<group>"; };
+		525D47CB2A36274400DD7C89 /* MapCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,61 @@
 		525D47A72A34AFE700DD7C89 /* AlbumApp_HW14 */ = {
 			isa = PBXGroup;
 			children = (
+				525D47BE2A34BEE800DD7C89 /* Controller */,
+				525D47BD2A34BEDD00DD7C89 /* View */,
+				525D47BC2A34BED700DD7C89 /* Model */,
 				525D47A82A34AFE700DD7C89 /* AppDelegate.swift */,
 				525D47AA2A34AFE700DD7C89 /* SceneDelegate.swift */,
-				525D47AC2A34AFE700DD7C89 /* ViewController.swift */,
 				525D47AE2A34AFE700DD7C89 /* Main.storyboard */,
 				525D47B12A34AFE900DD7C89 /* Assets.xcassets */,
 				525D47B32A34AFE900DD7C89 /* LaunchScreen.storyboard */,
 				525D47B62A34AFE900DD7C89 /* Info.plist */,
 			);
 			path = AlbumApp_HW14;
+			sourceTree = "<group>";
+		};
+		525D47BC2A34BED700DD7C89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				525D47C32A36116600DD7C89 /* CollectionViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		525D47BD2A34BEDD00DD7C89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				525D47C62A36128700DD7C89 /* TableView */,
+				525D47C52A36127C00DD7C89 /* CollectionView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		525D47BE2A34BEE800DD7C89 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				525D47AC2A34AFE700DD7C89 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		525D47C52A36127C00DD7C89 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				525D47C72A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift */,
+				525D47C92A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift */,
+				525D47CB2A36274400DD7C89 /* MapCollectionCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		525D47C62A36128700DD7C89 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				525D47BF2A34BFD300DD7C89 /* MyAlbumsCell.swift */,
+				525D47C12A36043700DD7C89 /* PeopleAndPlacesCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +196,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525D47CC2A36274400DD7C89 /* MapCollectionCell.swift in Sources */,
+				525D47C42A36116600DD7C89 /* CollectionViewModel.swift in Sources */,
 				525D47AD2A34AFE700DD7C89 /* ViewController.swift in Sources */,
+				525D47CA2A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift in Sources */,
+				525D47C22A36043700DD7C89 /* PeopleAndPlacesCell.swift in Sources */,
+				525D47C82A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift in Sources */,
 				525D47A92A34AFE700DD7C89 /* AppDelegate.swift in Sources */,
 				525D47AB2A34AFE700DD7C89 /* SceneDelegate.swift in Sources */,
+				525D47C02A34BFD300DD7C89 /* MyAlbumsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

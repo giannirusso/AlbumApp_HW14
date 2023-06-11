@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class MyAlbumsCollectionCell: UICollectionViewCell {
     
 /* создать клоужер ячейки коллекции со свойствами
  var imageName: String
@@ -19,9 +19,8 @@ class CollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .purple
+        imageView.backgroundColor = .systemBackground
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 150/2
         return imageView
     }()
     
@@ -52,7 +51,7 @@ class CollectionViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(label)
         contentView.addSubview(quantityLabel)
-        contentView.backgroundColor = .brown
+        contentView.backgroundColor = .systemBackground
         
         NSLayoutConstraint.activate([
             
@@ -79,9 +78,6 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.layer.cornerRadius = bounds.width / 2
-    }
+    
 }
 
