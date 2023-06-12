@@ -13,7 +13,7 @@ class PeopleAndPlacesCell: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: 150, height: 150)
-        layout.sectionInset = .init(top: 16, left: 16, bottom: 16, right: 16)
+        layout.sectionInset = .init(top: 0, left: 16, bottom: 60, right: 16)
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -36,16 +36,16 @@ class PeopleAndPlacesCell: UITableViewCell {
     var collectionViewConfig: [[CollectionViewModel]] = [
         
         [
-            CollectionViewModel(imageName: "Ava1", title: "People", numberOfPhotos: 1),
+            CollectionViewModel(imageName: "ava1", title: "People", numberOfPhotos: 1),
         ],
     ]
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
-        contentView.addSubview(collectionView)
         contentView.addSubview(title)
+        contentView.addSubview(collectionView)
+
 
         
         NSLayoutConstraint.activate([
@@ -81,6 +81,9 @@ extension PeopleAndPlacesCell: UICollectionViewDataSource {
         cell?.label.text = cellModel.title
         cell?.quantityLabel.text = String(cellModel.numberOfPhotos)
         cell?.imageViewOne.image = UIImage(named: cellModel.imageName)
+        cell?.imageViewTwo.image = UIImage(named: cellModel.imageName)
+        cell?.imageViewThree.image = UIImage(named: cellModel.imageName)
+        cell?.imageViewFour.image = UIImage(named: cellModel.imageName)
         
         return cell!
         

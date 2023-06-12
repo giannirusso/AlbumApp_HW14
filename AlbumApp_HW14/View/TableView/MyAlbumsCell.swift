@@ -13,7 +13,7 @@ class MyAlbumsCell: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: 150, height: 150)
-        layout.sectionInset = .init(top: 0, left: 16, bottom: 30, right: 16)
+        layout.sectionInset = .init(top: 0, left: 16, bottom: 60, right: 16)
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -46,7 +46,6 @@ class MyAlbumsCell: UITableViewCell {
             CollectionViewModel(imageName: "8", title: "Eight", numberOfPhotos: 800),
             CollectionViewModel(imageName: "9", title: "Nine", numberOfPhotos: 900),
             CollectionViewModel(imageName: "10", title: "Ten", numberOfPhotos: 1000),
-            
         ]
         
     ]
@@ -54,8 +53,8 @@ class MyAlbumsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.addSubview(collectionView)
         contentView.addSubview(title)
+        contentView.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
             

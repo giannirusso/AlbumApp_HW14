@@ -19,6 +19,7 @@
 		525D47C82A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47C72A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift */; };
 		525D47CA2A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47C92A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift */; };
 		525D47CC2A36274400DD7C89 /* MapCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47CB2A36274400DD7C89 /* MapCollectionCell.swift */; };
+		525D47D02A369E5900DD7C89 /* DefaultCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525D47CF2A369E5900DD7C89 /* DefaultCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		525D47C72A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlbumsCollectionCell.swift; sourceTree = "<group>"; };
 		525D47C92A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleAndPlacesCollectionCell.swift; sourceTree = "<group>"; };
 		525D47CB2A36274400DD7C89 /* MapCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCollectionCell.swift; sourceTree = "<group>"; };
+		525D47CF2A369E5900DD7C89 /* DefaultCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				525D47C32A36116600DD7C89 /* CollectionViewModel.swift */,
+				525D47CF2A369E5900DD7C89 /* DefaultCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				525D47C42A36116600DD7C89 /* CollectionViewModel.swift in Sources */,
 				525D47AD2A34AFE700DD7C89 /* ViewController.swift in Sources */,
 				525D47CA2A36255600DD7C89 /* PeopleAndPlacesCollectionCell.swift in Sources */,
+				525D47D02A369E5900DD7C89 /* DefaultCellModel.swift in Sources */,
 				525D47C22A36043700DD7C89 /* PeopleAndPlacesCell.swift in Sources */,
 				525D47C82A3612AD00DD7C89 /* MyAlbumsCollectionCell.swift in Sources */,
 				525D47A92A34AFE700DD7C89 /* AppDelegate.swift in Sources */,

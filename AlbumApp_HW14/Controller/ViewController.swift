@@ -32,10 +32,16 @@ class ViewController: UIViewController {
     }()
     
 // данные для ячеек (ЯЧЕЕК ЕЩË НЕТ!)
-    var cellConfig: [[String]] = [
-        ["0","1","2","3"],
-        ["4","5","6","7"],
-        ["8","9","10","11"]
+    var cellConfig: [[DefaultCellModel]] = [
+        [
+            DefaultCellModel(title: "Airplane Mode", image: UIImage(systemName: "airplane")!, type: .switchCell, secText: nil),
+            DefaultCellModel(title: "Wi-Fi", image: UIImage(systemName: "wifi.circle.fill")!, type: .accessoryLabelCell, secText: "Not Connected"),
+            DefaultCellModel(title: "Bluetooth", image: UIImage(systemName: "chevron.forward.to.line")!, type: .accessoryLabelCell, secText: "Off"),
+            DefaultCellModel(title: "Mobile Data", image: UIImage(systemName: "antenna.radiowaves.left.and.right")!, type: .accessoryLabelCell, secText: "Off"),
+            DefaultCellModel(title: "Personal Hotspot", image: UIImage(systemName: "personalhotspot")!, type: .accessoryLabelCell, secText: "Off"),
+            DefaultCellModel(title: "VPN", image: UIImage(systemName: "v.circle.fill")!, type: .accessoryLabelCell, secText: "Not Connected"),],
+        [],
+        [],
     ]
     
 
@@ -92,7 +98,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "3")
         cell?.backgroundColor = .systemBackground
-        cell?.textLabel?.text = cellTitle
+//        cell?.textLabel?.text = cellTitle
         return cell!
     }
 //    кол-во секций в таблице
@@ -105,7 +111,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return 500
         }
         if indexPath.item == 1 && indexPath.section == 0 {
-            return 500
+            return 350
         }
         return 20
     }
